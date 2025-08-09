@@ -1,0 +1,17 @@
+add_executable(${APPLICATION_TARGET_NAME}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+)
+
+target_include_directories(${APPLICATION_TARGET_NAME}
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+target_link_libraries(${APPLICATION_TARGET_NAME} PRIVATE
+    ${LIBRARY_TARGET_NAME}
+)
+
+set_target_properties(${APPLICATION_TARGET_NAME} PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)
